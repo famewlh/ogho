@@ -5,12 +5,14 @@ var flag = false;
 
 getData();
 function getData() {
+    console.log('getdata')
     if (!flag) {
         flag = true;
         $.ajax({
             type: 'GET',
             url: 'https://famewlh.github.io/ogho/getPics.php?cPage=' + num,
             success: addDom,
+            datatType: 'json',
             beforeSend: function () {
                 $('.loading').show();
             },
@@ -20,6 +22,8 @@ function getData() {
 };
 
 function addDom(data) {
+    console.log(1111);
+    console.log(data); 
     $('.loading').hide();
     var dataList = JSON.parse(data);
     console.log(dataList)
